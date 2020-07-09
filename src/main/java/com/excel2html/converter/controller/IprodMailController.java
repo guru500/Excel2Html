@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 
 import javax.mail.internet.MimeMessage;
 
-import org.apache.log4j.Logger;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/mail")
 public class IprodMailController {
-
-	private static final Logger logger = Logger.getLogger(IprodMailController.class);
 
 	@RequestMapping("home")
 	public String home() {
@@ -74,7 +71,6 @@ public class IprodMailController {
 			return "success";
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error("IprodMailController :: Exception sendMail :: " + e.getMessage());
 		}
 
 		return "failed";
