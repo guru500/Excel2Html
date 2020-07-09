@@ -23,6 +23,11 @@ import org.apache.poi.xssf.usermodel.XSSFShape;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+
+/**
+ * @author Gurcharan
+ *
+ */
 public class ExcelToHtml {
 
 	final private StringBuilder out = new StringBuilder(65536);
