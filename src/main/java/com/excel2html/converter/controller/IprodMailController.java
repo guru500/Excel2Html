@@ -36,34 +36,27 @@ public class IprodMailController {
 		try {
 
 			JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-			mailSender.setHost("mail.id4-realms.com");
-			mailSender.setPort(587);
-			mailSender.setUsername("vishal.jaiswal@id4-realms.com");
-			mailSender.setPassword("id4@123A");
+			mailSender.setHost("****");
+			mailSender.setPort(123);
+			mailSender.setUsername("****");
+			mailSender.setPassword("******");
 
-			File file = new File("D://AWS//production-report.xlsx");
+			File file = new File("***********");
 
 			InputStream targetStream = null;
 			targetStream = new FileInputStream(file);
 
 			String html = new ExcelToHtml(targetStream).getHTML();
 
-			String path = "D:/AWS/text.txt";
+			String path = "******";
 			Files.write(Paths.get(path), html.getBytes());
 
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
-			helper.setTo("svgurcharan@gmail.com");
-			helper.setFrom("vishal.jaiswal@id4-realms.com");
+			helper.setTo("****************");
+			helper.setFrom("********************");
 			helper.setText(html, true);
 
-			/*
-			 * helper.addAttachment(attachFile.getOriginalFilename(), new
-			 * InputStreamSource() {
-			 * 
-			 * @Override public InputStream getInputStream() throws IOException { return
-			 * attachFile.getInputStream(); } });
-			 */
 			helper.setSubject("Report with attachment");
 
 			mailSender.send(message);
